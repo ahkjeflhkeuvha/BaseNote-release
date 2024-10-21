@@ -1,0 +1,176 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+* {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 18%;
+}
+
+a {
+    color: black;
+    text-decoration: none;  
+}
+
+
+/* 네비게이션 바 */
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 10px 16px 0px rgba(102, 102, 102, 0.20);
+}
+
+nav img {
+    width: 75px;
+}
+
+.mypage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.mypage-container > h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    justify-content: flex-start;    
+}
+
+.image-container > img {
+    width: 100px;
+    height: 100px;
+}
+
+.addition-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+#userid {
+    font-size: 20px;
+}
+
+.button-container {
+    display: flex;
+    column-gap: 8px;
+}
+
+.image-button {
+    background-color: white;
+    border: 1px solid #222222;
+    padding: 8px 28px;
+    border-radius: 5px;
+}
+
+.image-button > label {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.del-button {
+    background-color: white;
+    border: 1px solid #222222;
+    padding: 8px 28px;
+    border-radius: 5px;
+}
+
+.del-button > input {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+}
+
+.personal-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.personal-info-container > p {
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+
+.phonenum-container, .password-container, .team-container {
+    position: relative;
+}
+
+.personal-info-container > .phonenum-container > button {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+
+    background-color: transparent;
+    border: 1px solid #222222;
+    padding: 6px 24px;
+    border-radius: 5px;
+
+}
+
+.personal-info-container > .password-container > button {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+
+    background-color: transparent;
+    border: 1px solid #222222;
+    padding: 6px 24px;
+    border-radius: 5px;
+}
+
+.personal-info-container > .team-container > button {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+
+    background-color: transparent;
+    border: 1px solid #222222;
+    padding: 6px 24px;
+    border-radius: 5px;
+}
+
+#phonenum, #password, #team {
+    font-size: 22px;
+}
+
+.border {
+    width: 100%;
+    height: 1px;
+    background-color: #222222;
+    margin: 10px 0;
+}
+
+#submitButton {
+    width: 100%;
+    height: 60px;
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    background-color: #05141F;
+    font-size: 20px;
+    color: white;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mypage.css">
+    <title>BaseNote</title>
+</head>
+
+<body>
+    <nav>
+        <a href="calendar.html">캘린더</a>
+        <a href="community.html">커뮤니티</a>
+        <a href="main.html"><img src="images/logo.jpg" alt=""></a>
+        <a href="diarylist.html">베이스노트</a>
+        <a href="mypage.html">마이페이지</a>
+    </nav>
+
+    <div class="mypage-container">
+        <h2>마이페이지</h2>
+        <div class="image-container">
+            <img src="" alt="" id="userImg">
+            <div class="addition-container">
+                <div class="id-item">
+                    <p id="userid"></p>
+                </div>
+                <div class="button-container">
+                    <div class="image-button">
+                        <label for="file-input">이미지 변경</label>
+                        <input type="file" style="display: none;">
+                    </div>
+                    <div class="del-button">
+                        <input type="button" value="삭제">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="personal-info-container">
+            <p>개인정보</p>
+            <div class="phonenum-container">
+                <p>전화번호</p>
+                <p id="phonenum"></p>
+                <button>변경</button>
+                <div class="border"></div>
+            </div>
+            <div class="password-container">
+                <p>비밀번호</p>
+                <p id="password"></p>
+                <button>변경</button>
+                <div class="border"></div>
+            </div>
+            <div class="team-container">
+                <p>나의 팀</p>
+                <p id="team"></p>
+                <button>변경</button>
+                <div class="border"></div>
+            </div>
+        </div>
+
+        <button type="submit" id="submitButton">저장하기</button>
+    </div>
+
+    <script src="js/mypage.js"></script>
+</body>
+
+</html>

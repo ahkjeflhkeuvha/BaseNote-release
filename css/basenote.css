@@ -1,0 +1,254 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+* {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #F4F7FA;
+}
+
+a {
+    color: black;
+    text-decoration: none;  
+}
+
+/* 네비게이션 바 */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 10px 16px 0px rgba(102, 102, 102, 0.20);
+    z-index: 10;
+    background-color: white;
+    height: 70px;
+}
+
+nav img {
+    width: 75px;
+}
+
+/* 입력 컨테이너 */
+.diary-container {
+    margin-top: calc(70px + 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 84px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.diary-container > h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.select-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.input-item {
+    outline: none;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 70px;
+    padding: 10px 0;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+
+.input-item > p {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    margin: 0;
+    color: #58595B;
+    font-size: 16px;
+}
+
+.input-item > input, .input-item > select {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    font-size: 20px;
+    width: 100%;
+}
+
+#date {
+    width: 20%;
+}
+
+#best-player {
+    width: 20%;
+}
+
+#today-pitcher {
+    width: 15%;
+}
+
+#stadium {
+    width: 30%;
+}
+
+#win-lose {
+    width: 10%;
+}
+
+.text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-color: white;
+    height: 70px;
+    margin: 16px 0;
+    padding: 10px 0;
+    position: relative;
+    border-radius: 20px;
+}
+
+.text-container > p {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    margin: 0;
+    color: #58595B;
+    font-size: 16px;
+}
+
+.text-container > input {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    padding: 0 12px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.textarea-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+textarea {
+    width: 100%;
+    height: 40vh;
+    border: 0;
+    background-color: white;
+    border-radius: 20px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    height: 72px;
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    background-color: #7EF899;
+    font-size: 20px;
+    color: white;
+}
+
+@media (max-width: 900px) {
+    #date {
+        width: 20%;
+    }
+    
+    #best-player {
+        width: 18%;
+    }
+    
+    #today-pitcher {
+        width: 15%;
+    }
+    
+    #stadium {
+        width: 33%;
+    }
+    
+    #win-lose {
+        width: 10%;
+    }
+    .diary-container > h1 {
+        font-size: 36px;
+    }
+
+    .input-item > input, .input-item > select, .text-container > input, textarea {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 800px) {
+    #date {
+        width: 30%;
+    }
+    
+    #best-player {
+        width: 35%;
+    }
+    
+    #today-pitcher {
+        width: 30%;
+    }
+    
+    #stadium {
+        width: 60%;
+    }
+    
+    #win-lose {
+        width: 35%;
+    }
+
+    .diary-container > h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 550px) {
+    nav img {
+        width: 50px;
+    }
+
+    .diary-container > h1 {
+        font-size: 24px;
+    }
+
+    .input-item > input, .input-item > select, .text-container > input, textarea {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 18px;
+        height: 60px;
+    }
+}

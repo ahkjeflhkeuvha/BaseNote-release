@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/diarylist.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Diary Entry</title>
+    
+</head>
+
+<body>
+    <nav>
+        <a href="calendar.html">캘린더</a>
+        <a href="community.html">커뮤니티</a>
+        <a href="main.html"><img src="images/logo.jpg" alt=""></a>
+        <a href="diarylist.html">베이스노트</a>
+        <a href="mypage.html">마이페이지</a>
+    </nav>
+
+    <main>
+        <div id="diary-list"></div>
+    </main>
+
+    <div id="popup" class="popup">
+        <span class="popup-close" onclick="closePopup()">닫기</span>
+        <div id="popup-content" class="popup-content">
+        </div>
+    </div>
+
+    <button class="plus-button"><i class="bi bi-plus-circle-fill"></i></button>
+
+    <script src="js/diarylist.js"></script>
+</body>
+
+</html>

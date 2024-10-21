@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/basenote.css">
+</head>
+
+<body>
+    <nav>
+        <a href="calendar.html">캘린더</a>
+        <a href="community.html">커뮤니티</a>
+        <a href="main.html"><img src="images/logo.jpg" alt=""></a>
+        <a href="diarylist.html">베이스노트</a>
+        <a href="mypage.html">마이페이지</a>
+    </nav>
+
+    <form id="diary-form" class="diary-container">
+        <h1>베이스노트</h1>
+        <div class="select-container">
+            <div class="input-item" id="date">
+                <p>날짜</p>
+                <input type="date" id="date-text">
+            </div>
+            <div class="input-item" id="best-player">
+                <p>베스트 플레이어</p>
+                <input type="text" id="best-player-text">
+            </div>
+            <div class="input-item" id="today-pitcher">
+                <p>선발투수</p>
+                <input type="text" id="pitcher">
+            </div>
+            <div class="input-item" id="stadium">
+                <p>경기장</p>
+                <select id="stadium-select">
+                    <option value="서울종합운동장 야구장">서울종합운동장 야구장</option>
+                    <option value="수원 케이티 위즈 파크">수원 케이티 위즈 파크</option>
+                    <option value="인천 SSG 랜더스필드">인천 SSG 랜더스필드</option>
+                    <option value="창원 NC 파크">창원 NC 파크</option>
+                    <option value="광주-기아 챔피언스 필드">광주-기아 챔피언스 필드</option>
+                    <option value="사직 야구장">사직 야구장</option>
+                    <option value="대구 삼성 라이온즈 파크">대구 삼성 라이온즈 파크</option>
+                    <option value="대전 한화생명 이글스파크">대전 한화생명 이글스파크</option>
+                    <option value="고척 스카이돔">고척 스카이돔</option>
+                    <option value="집관">집관</option>
+                </select>
+            </div>
+            <div class="input-item" id="win-lose">
+                <p>승/패</p>
+                <select id="win-lose-select">
+                    <option value="승">승</option>
+                    <option value="패">패</option>
+                    <option value="무">무</option>
+                </select>
+            </div>
+        </div>
+        <div class="text-container">
+            <p>제목</p>
+            <input type="text" id="title">
+        </div>
+        <div class="textarea-container">
+            <textarea id="content" cols="30" rows="10"></textarea>
+        </div>
+        <button id="submitButton">저장하기</button>
+    </form>
+
+    <script src="js/basenote.js"></script>
+</body>
+
+</html>
