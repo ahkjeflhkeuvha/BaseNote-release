@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadDiaries() {
         try {
             // diaries.json에서 데이터 가져오기
-            const response = await fetch('C:\BaseNote-release\diaries.json'); // JSON 파일 경로를 설정하세요
+            const response = await fetch('diaries.json'); // JSON 파일 경로를 설정하세요
             if (!response.ok) {
                 throw new Error(`Error fetching diaries: ${response.status}`);
             }

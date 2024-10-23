@@ -1,4 +1,5 @@
 const userid = localStorage.getItem('id');
+console.log(userid)
 
 async function locate(event) {
     console.log(userid);
@@ -9,9 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadPercent() {
         try {
             // 일기 목록 데이터를 가져옵니다
-            const response = await fetch(`http://localhost:3000/diaries/basenote/${userid}`);
+            const response = await fetch('diaries.json');
             const data = await response.json();
+            console.log(datas)
             const diaries = data["diaries"];
+
+        
             
             // 승, 무, 패 개수 계산
             let winCount = 0, noneCount = 0, loseCount = 0;
