@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 * {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     box-sizing: border-box;
@@ -11,6 +12,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center; /* 중앙 정렬 추가 */
     background-color: #F4F7FA;  
 }
 
@@ -19,9 +21,7 @@ a {
     text-decoration: none;  
 }
 
-
 /* 네비게이션 바 */
-
 nav {
     position: fixed;
     width: 100%;
@@ -29,6 +29,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: white;
     box-shadow: 0px 10px 16px 0px rgba(102, 102, 102, 0.20);
 }
 
@@ -36,28 +37,34 @@ nav img {
     width: 75px;
 }
 
+main {
+    width: 100%;
+}
+
 #calendar-header {
-    margin-top: 20%;
+    margin-top: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 40px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #calendar-header > button {
     border: 0;
-    background-color: transparent ;
+    background-color: transparent;
 }
 
+/* 반응형 캘린더 컨테이너 */
 #calendar-container {
-    width: 600px;
-    height: calc(max-content + 20px);
+    width: 90%; /* 초기 상태에서 90% 차지 */
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    place-items: center;
 }
 
 .item {
@@ -65,6 +72,7 @@ nav img {
     place-items: center;
     width: 70px;
     height: 70px;
+    text-align: center;
 }
 
 .week-name {
@@ -82,8 +90,7 @@ nav img {
 }
 
 .other-month {
-    color: #ddd !important;
-    
+    color: #ddd !important;   
 }
 
 .win-highlight {
@@ -97,4 +104,41 @@ nav img {
 
 .none-highlight {
     background-color: rgb(43, 217, 133);
+}
+
+@media (max-width: 900px) {
+    #calendar-header {
+        margin-top: 15%;
+    }
+}
+
+/* 반응형 폰트 크기 조정 */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* 세로 정렬로 변경 */
+    }
+
+    #calendar-header {
+        margin-top: 20%;
+    }
+
+    #calendar-container {
+        width: 90%; /* 모바일에서는 좀 더 넓게 */
+
+    }
+
+    .week-name {
+        font-size: 0.8rem; /* 작은 화면에서 폰트 크기 줄이기 */
+    }
+}
+
+@media (max-width: 500px) {
+    .item {
+        width: 40px; /* 아이템 크기 추가로 줄이기 */
+        height: 80px;
+    }
+
+    .week-name {
+        font-size: 0.7rem; /* 더 작은 화면에서 폰트 크기 줄이기 */
+    }
 }
