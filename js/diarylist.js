@@ -32,7 +32,7 @@
             // 필터링된 다이어리 목록을 렌더링
             userDiaries.forEach(diary => {
                 const title = diary.content.substr(0, 10);
-                const text = diary.content.substr(0, 80);
+                const text = diary.content.substr(0, 65) + "...";
     
                 const diaryElement = document.createElement('div');
                 diaryElement.setAttribute("class", "diary-content");
