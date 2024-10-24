@@ -39,7 +39,8 @@ async function submit(event) {
     const result = await signup(userid, userpw, username, userphone, userteam);
     if (result && result.success) {
         alert('회원가입 성공');
-        window.location.href = '    .html'; // 로그인 성공 시 이동할 페이지
+        localStorage.setItem("id", userid);
+        window.location.href = 'diarylist.html'; // 로그인 성공 시 이동할 페이지
     } else {
         alert('회원가입에 실패하였습니다. 다시 시도해 주세요.');
     }

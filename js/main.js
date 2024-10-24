@@ -12,15 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // 일기 목록 데이터를 가져옵니다
             const response = await fetch('diaries.json');
             const data = await response.json();
-            console.log(datas)
-            const diaries = data["diaries"];
+            console.log(data)
 
         
             
             // 승, 무, 패 개수 계산
             let winCount = 0, noneCount = 0, loseCount = 0;
             
-            diaries.forEach((diary) => {
+            data.forEach((diary) => {
                 const result = diary.result;  // diary.result는 승, 무, 패 결과
 
                 if (result === "승") winCount++;
