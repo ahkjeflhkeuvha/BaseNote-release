@@ -13,6 +13,7 @@
     
             const localData = localStorage.getItem('diaries');
             const localDiaries = localData ? JSON.parse(localData) : [];
+            console.log(localDiaries)
     
             // 기존 데이터와 새로 가져온 데이터를 합침
             const allDiaries = [...localDiaries, ...jsonDiaries];

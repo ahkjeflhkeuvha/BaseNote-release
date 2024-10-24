@@ -1,5 +1,7 @@
 const userid = localStorage.getItem('id') || 'jieun0906';
 
+console.log(userid)
+
 function saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content) {
     const diary = {
         userId: userId,
@@ -29,7 +31,7 @@ function submit(event) {
 
     const userId = userid;
     const title = document.getElementById('title').value;
-    const date = document.getElementById('date').value;
+    const date = document.getElementById('date-text').value;
     const bestPlayer = document.getElementById('best-player-text').value;
     const pitcher = document.getElementById('pitcher').value;
     const location = document.getElementById('stadium-select').value;
