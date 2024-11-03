@@ -1,7 +1,5 @@
 const userid = localStorage.getItem('id') || 'jieun0906';
 
-console.log(userid);
-
 function saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, image) {
     const diary = {
         userId: userId,
@@ -12,7 +10,7 @@ function saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, 
         location: location,
         result: gameRes,
         content: content,
-        image: image // 이미지 파일 이름
+        image: image
     };
 
     // 저장된 일기 목록을 가져오기
@@ -38,22 +36,38 @@ function submit(event) {
     const location = document.getElementById('stadium-select').value;
     const gameRes = document.getElementById('win-lose-select').value;
     const content = document.getElementById('content').value;
-    
-    // 이미지 파일 입력 요소에서 파일 이름을 가져옴
+
+    // 이미지 파일 읽기
     const imageInput = document.getElementById('image');
-    const image = imageInput.files.length > 0 ? imageInput.files[0].name : ''; // 파일이 선택되지 않았을 경우 빈 문자열로 설정
+    let image = null;
+    if (imageInput.files.length > 0) {
+        const file = imageInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            image = e.target.result;
+            const result = saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, image);
+            if (result) {
+                alert('일기가 성공적으로 저장되었습니다.');
+                window.location.href = 'diarylist.html';
+            } else {
+                alert('일기 저장에 실패하였습니다. 다시 시도해 주세요.');
+            }
+        };
+        reader.readAsDataURL(file);
+    } else {
+        // 이미지가 선택되지 않은 경우
+        const result = saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, null);
+        if (result) {
+            alert('일기가 성공적으로 저장되었습니다.');
+            window.location.href = 'diarylist.html';
+        } else {
+            alert('일기 저장에 실패하였습니다. 다시 시도해 주세요.');
+        }
+    }
 
     if (!title || !date || !bestPlayer || !pitcher || !location || !gameRes || !content) {
         alert('빈칸이 있는지 확인해 주세요.');
         return;
-    }
-
-    const result = saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, image);
-    if (result) {
-        alert('일기가 성공적으로 저장되었습니다.');
-        window.location.href = 'diarylist.html';
-    } else {
-        alert('일기 저장에 실패하였습니다. 다시 시도해 주세요.');
     }
 }
 

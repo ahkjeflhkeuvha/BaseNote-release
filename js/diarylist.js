@@ -36,9 +36,11 @@ async function loadDiaries() {
                     <p>${diary.date}</p>
                     <p>${diary.bestPlayer}</p>
                     <p>${diary.result}</p>
-                    ${diary.result === 'Win' 
+                    ${diary.result === '승' 
                         ? '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20Blowing%20a%20Kiss.png" alt="승" width="25" height="25" />'
-                        : '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Anxious%20Face%20with%20Sweat.png" alt="패" width="25" height="25" />'}
+                        : diary.result === '패' 
+                        ? '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Anxious%20Face%20with%20Sweat.png" alt="패" width="25" height="25" />'
+                        : '<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Astonished%20Face.png" alt="무" width="25" height="25" />'  }
                 </div>
                 <p>${text}</p>
                 <button onclick="openPopup(${diary.id})">Read More</button>

@@ -87,14 +87,14 @@ const setCalendar = async (date) => {
         const realDate = date;
         const dateString = `${year}-${realMonth.toString().padStart(2, '0')}-${realDate.toString().padStart(2, '0')}`; // "YYYY-MM-DD" 형식
 
-        if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "Win") {
+        if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "승") {
             let winEmoji = document.createElement('img');
             winEmoji.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20Blowing%20a%20Kiss.png";
             winEmoji.alt = "Win Emoji";
             winEmoji.width = 25; // 이미지 크기 설정
             winEmoji.height = 25;
             currentMonthDateDiv.appendChild(winEmoji);
-        } else if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "Lose") {
+        } else if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "패") {
             let winEmoji = document.createElement('img');
             winEmoji.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Anxious%20Face%20with%20Sweat.png";
             winEmoji.alt = "Lose Emoji";
