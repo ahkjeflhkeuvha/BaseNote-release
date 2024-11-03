@@ -12,14 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
             // 일기 목록 데이터를 가져옵니다
             const response = await fetch('diaries.json');
             const data = await response.json();
-            console.log(data)
+            const localData = localStorage.getItem('diaries');
+            const localDiaries = localData ? JSON.parse(localData) : [];
+
+            const allDiaries = [...localDiaries, ...data];
 
         
             
             // 승, 무, 패 개수 계산
             let winCount = 0, noneCount = 0, loseCount = 0;
             
-            data.forEach((diary) => {
+            allDiaries.forEach((diary) => {
                 const result = diary.result;  // diary.result는 승, 무, 패 결과
 
                 if (result === "승") winCount++;
@@ -90,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             anchor: 'center', // 값 위치
                             align: 'center', // 값 정렬
                             font: {
-                                size: 50  // 레이블 크기 조정
+                                size: 20  // 레이블 크기 조정
                             },
                             formatter: (value, context) => {
                                 // 각 데이터에 맞는 승률을 표시

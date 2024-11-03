@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 * {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     box-sizing: border-box;
@@ -10,27 +11,34 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     background-color: #F4F7FA;
 }
 
 a {
-    color: black;
+    color: #333;
     text-decoration: none;  
+    transition: color 0.3s ease;
 }
 
+a:hover {
+    color: #007BFF; /* 마우스 오버 시 색상 변경 */
+}
 
 /* 네비게이션 바 */
-
 nav {
     position: fixed;
     width: 100%;
     top: 0;
     display: flex;
     justify-content: space-around;
-    background-color: white;
     align-items: center;
-    box-shadow: 0px 10px 16px 0px rgba(102, 102, 102, 0.20);
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 1000;
 }
 
 nav img {
@@ -38,31 +46,74 @@ nav img {
 }
 
 .result-container {
-    margin-top: 8%;
+    margin-top: 12%; /* 네비게이션 바를 고려하여 여백 설정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 h2 {
-    margin: 0 auto;
-    margin-top: 10%;
     font-size: 36px;
-    text-align: center;
+    color: #333;
+    margin-bottom: 20px; /* 제목 아래 여백 추가 */
 }
 
 #resultChart {
-    display: flex;
-    width: 50% !important;
-    height: 20% !important;
-    margin-top: 20% !important;
+    width: 60% !important;
+    height: 400px !important; /* 차트의 기본 높이 설정 */
+    background-color: white; /* 차트 배경색 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
+/* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 900px) {
     .result-container {
-        margin-top: 15%;
+        margin-top: 20% !important; /* 네비게이션 바를 고려하여 여백 조정 */
+    }
+
+    h2 {
+        font-size: 32px; /* 화면 크기에 따라 제목 크기 조정 */
+    }
+
+    #resultChart {
+        height: 300px !important; /* 차트 높이 조정 */
     }
 }
 
 @media (max-width: 768px) {
     .result-container {
-        margin-top: 20%;
+        margin-top: 25%;
+    }
+    h2 {
+        font-size: 28px; /* 작은 화면에서 제목 크기 조정 */
+    }
+
+    #resultChart {
+        height: 300px; /* 작은 화면에서 차트 높이 조정 */
+        width: 80% !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .result-container {
+        margin-top: 30% !important;
+    }
+    h2 {
+        font-size: 24px; /* 모바일 화면에서 제목 크기 조정 */
+    }
+
+    #resultChart {
+        height: 250px; /* 모바일에서 차트 높이 조정 */
+        width: 90% !important;
+    }
+
+    .result-container {
+        font-size: 18px; /* 모바일에서 폰트 크기 조정 */
     }
 }
