@@ -1,4 +1,4 @@
-const userid = localStorage.getItem('id');
+const userid = localStorage.getItem('id') || 'jieun0906';
 console.log(userid)
 
 async function locate(event) {

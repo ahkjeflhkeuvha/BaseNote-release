@@ -11,12 +11,12 @@ nextMonthButton.onclick = () => changeMonth(1);
 // 현재 날짜 구하기
 var currentDate = new Date();
 
-const userid = localStorage.getItem('id');
+const userid = localStorage.getItem('id') || 'jieun0906';
 
 // DB에서 저장된 날짜를 가져오는 함수
 const fetchSavedDates = async () => {
     try {
-        const response = await fetch(`http://localhost:3000/diaries/basenote/${userid}`); // API 경로에 맞게 수정
+        const response = await fetch(`diaries.json`); // API 경로에 맞게 수정
         if (!response.ok) throw new Error('데이터 가져오기 실패');
         const savedDates = await response.json();
         return savedDates; // DB에서 가져온 날짜 배열 반환

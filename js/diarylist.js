@@ -1,5 +1,5 @@
 
-    const userid = localStorage.getItem('id');
+const userid = localStorage.getItem('id') || 'jieun0906';
 
     // 일기 목록을 가져오고 렌더링하는 함수
     async function loadDiaries() {

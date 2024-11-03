@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 * {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     box-sizing: border-box;
@@ -9,23 +10,27 @@
 body {
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F7FA;
 }
 
 a {
     color: black;
-    text-decoration: none;  
+    text-decoration: none;
 }
 
-
 /* 네비게이션 바 */
-
 nav {
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: #fff;
     box-shadow: 0px 10px 16px 0px rgba(102, 102, 102, 0.20);
 }
 
@@ -33,8 +38,7 @@ nav img {
     width: 75px;
 }
 
-/* 로그인 박스 */
-
+/* 회원가입 박스 */
 #signup-container {
     display: flex;
     flex-direction: column;
@@ -42,6 +46,7 @@ nav img {
     align-items: center;
     margin-top: 10%;
     margin-bottom: 84px;
+    width: 100%;
 }
 
 #signup-container > h2 {
@@ -50,35 +55,36 @@ nav img {
 }
 
 /* 입력창 */
-
 .input-container {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    background-color: #F7F7F7;
+    background-color: #fff;
     height: 78px;
     margin-bottom: 18px;
-    width: 1144px;
+    width: 90%; /* 화면 크기에 따라 너비 조정 */
+    max-width: 1144px;
+    border-radius: 15px;
+    padding: 0 20px;
 }
 
 .input-container > p {
     position: absolute;
-    top: 10px;
-    left: 15px;
+    top: 14px;
+    left: 20px;
     margin: 0;
 }
 
 .input-container > input {
-    width: 1144px;
+    width: 100%; /* 너비를 부모 요소에 맞게 조정 */
     height: 60px;
     border: 0;
-    border-radius: 5px;
-    background-color: #F7F7F7;
+    background-color: #fff;
     font-size: 20px;
-    padding: 0 15px;
     outline: none;
+    border-radius: 15px;
 }
 
 #team-select {
@@ -87,20 +93,90 @@ nav img {
     font-size: 20px;
     background-color: transparent;
     border: 0;
-    padding: 0 10px 15px;
+    padding-left: -5px;
 }
 
 button {
-    width: 1144px;
+    width: 90%; /* 너비를 부모 요소에 맞게 조정 */
+    max-width: 1144px;
     height: 72px;
     border: 0;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-bottom: 18px;
-    background-color: #05141F;
+    background-color: #7EF899;
     font-size: 20px;
     color: white;
 }
 
 .choice-container {
     font-size: 18px;
+    width: 90%; /* 작은 화면에서 너비 조정 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1000px) {
+    #signup-container {
+        margin-top: 15%;
+    }
+    #signup-container > h2 {
+        font-size: 40px; /* 폰트 크기 조정 */
+    }
+}
+
+@media (max-width: 768px) {
+    #signup-container {
+        margin-top: 20%;
+    }
+    #signup-container > h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    .input-container {
+        display: flex;
+        flex-direction: row;
+    }
+    .input-container > p {
+        font-size: 16px;
+    }
+    .input-container > input {
+        font-size: 16px;
+        margin-left: 130px;
+    }
+    .input-container select {
+        margin-left: 130px;
+        font-size: 16px;
+    }
+
+    .input-container option {
+        font-size: 16px;
+    }
+    .input-container, button {
+        width: 80%; /* 작은 화면에서 너비 조정 */
+        height: 50px; /* 버튼 높이 축소 */
+        font-size: 18px;
+    }
+    .input-container > input {
+        height: 50px; /* 입력창 높이 축소 */
+    }
+}
+
+@media (max-width: 500px) {
+    #signup-container {
+        margin-top: 30%;
+    }
+    #signup-container > h2 {
+        font-size: 30px; /* 더 작은 화면에서 폰트 크기 축소 */
+        margin-bottom: 25px;
+    }
+    .input-container, button {
+        width: 80%; /* 너비 조정 */
+        height: 45px; /* 더 작은 화면에서 높이 축소 */
+        font-size: 16px;
+    }
+    .input-container > input {
+        height: 45px; /* 입력창 높이 축소 */
+    }
+    .choice-container {
+        font-size: 16px; /* 더 작은 화면에서 폰트 크기 축소 */
+    }
 }
