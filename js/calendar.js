@@ -16,9 +16,10 @@ const userid = localStorage.getItem('id') || 'jieun0906';
 // DB에서 저장된 날짜를 가져오는 함수
 const fetchSavedDates = async () => {
     try {
-        const response = await fetch(`diaries.json`); // API 경로에 맞게 수정
+        const response = await fetch('diaries.json'); // API 경로에 맞게 수정
         if (!response.ok) throw new Error('데이터 가져오기 실패');
         const savedDates = await response.json();
+        console.log(savedDates)
         return savedDates; // DB에서 가져온 날짜 배열 반환
     } catch (error) {
         console.error(error);
@@ -50,17 +51,20 @@ const setCalendar = async (date) => {
     let weekNameString = "";
 
     weekNamesArray.forEach((val) => {
-        weekNameString += `<div class=item week-name">${val}</div>\n`;
+        weekNameString += `<div class="item week-name">${val}</div>\n`;
     });
 
     calendarContainer.innerHTML = weekNameString;
 
-    let savedDiaries = new Map()
-    savedDates.diaries.forEach((val) => {
-        savedDiaries.set(val["date"], val["result"])
-    });
+    const localData = localStorage.getItem('diaries');
+    const localDiaries = localData ? JSON.parse(localData) : [];
 
-    console.log(savedDates)
+    const allDiaries = [...localDiaries, ...savedDates]; // JSON 구조에 맞게 수정
+    console.log(allDiaries)
+    let savedAllDiaries = new Map();
+    allDiaries.forEach((val) => {
+        savedAllDiaries.set(val["date"], val["result"]);
+    });
 
     // 이전 달의 뒷날짜 표시
     const prevMonthLastDate = new Date(year, month, 0);
@@ -79,21 +83,31 @@ const setCalendar = async (date) => {
         let currentMonthDateDiv = document.createElement("div");
         currentMonthDateDiv.className = "item";
 
-        // DB에서 가져온 날짜와 비교하여 색상 변경
-        const realMonth = month + 1
-        const realDate = date
-        const dateString = `${year}-${realMonth.toString().padStart(2, '0')}-${realDate.toString().padStart(2, '0')}`; // "YYYY-MM-DD" 형식으로 변환
-        console.log(dateString, savedDiaries, savedDiaries.has(dateString))
-        if (savedDiaries.has(dateString) && savedDiaries.get(dateString) == "승") {
-            currentMonthDateDiv.classList.add("win-highlight"); // 특정 클래스 추가
-        } else if (savedDiaries.has(dateString) && savedDiaries.get(dateString) == "패") {
-            currentMonthDateDiv.classList.add("lose-highlight")
-        } else if (savedDiaries.has(dateString) && savedDiaries.get(dateString) == "무"){
-            currentMonthDateDiv.classList.add("non-hightlight")
-        }
+        const realMonth = month + 1;
+        const realDate = date;
+        const dateString = `${year}-${realMonth.toString().padStart(2, '0')}-${realDate.toString().padStart(2, '0')}`; // "YYYY-MM-DD" 형식
 
-        currentMonthDateDiv.textContent = date;
-        calendarContainer.appendChild(currentMonthDateDiv);
+        if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "Win") {
+            let winEmoji = document.createElement('img');
+            winEmoji.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20Blowing%20a%20Kiss.png";
+            winEmoji.alt = "Win Emoji";
+            winEmoji.width = 25; // 이미지 크기 설정
+            winEmoji.height = 25;
+            currentMonthDateDiv.appendChild(winEmoji);
+        } else if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "Lose") {
+            let winEmoji = document.createElement('img');
+            winEmoji.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Anxious%20Face%20with%20Sweat.png";
+            winEmoji.alt = "Lose Emoji";
+            winEmoji.width = 25; // 이미지 크기 설정
+            winEmoji.height = 25;
+            currentMonthDateDiv.appendChild(winEmoji);
+        } else if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "무") {
+            currentMonthDateDiv.classList.add("non-highlight");
+        } else {
+            const dateText = document.createTextNode(date);
+            currentMonthDateDiv.appendChild(dateText);     
+        }
+        calendarContainer.appendChild(currentMonthDateDiv);        
     }
 
     // 다음 달의 앞날짜 표시
@@ -103,7 +117,8 @@ const setCalendar = async (date) => {
         currentMonthDateDiv.textContent = date;
         calendarContainer.appendChild(currentMonthDateDiv);
     }
-}
+};
+
 
 setCalendar(currentDate);
 changeMonth(0);

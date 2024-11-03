@@ -5,7 +5,7 @@ const userid = localStorage.getItem('id') || 'jieun0906';
     async function loadDiaries() {
         try {
             // diaries.json에서 데이터 가져오기
-            const response = await fetch('./diaries.json'); // 경로를 확인하세요
+            const response = await fetch('diaries.json'); // 경로를 확인하세요
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -65,7 +65,7 @@ const userid = localStorage.getItem('id') || 'jieun0906';
         console.log(id)
         try {
             // `localStorage`에서 저장된 다이어리 데이터를 가져옴
-            const response = await fetch('./diaries.json'); // 경로를 확인하세요
+            const response = await fetch('diaries.json'); // 경로를 확인하세요
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

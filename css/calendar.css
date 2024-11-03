@@ -75,6 +75,7 @@ main {
     text-align: center;
 }
 
+
 .week-name {
     font-weight: bold;
     color: #aaa;
@@ -102,7 +103,7 @@ main {
     background-color: rgb(177, 166, 248);
 }
 
-.none-highlight {
+.non-highlight {
     background-color: rgb(43, 217, 133);
 }
 
