@@ -79,7 +79,6 @@ main {
 .week-name {
     font-weight: bold;
     color: #aaa;
-    border-bottom: 1px solid black;
 }
 
 .item:nth-child(7n+1) {

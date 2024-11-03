@@ -102,7 +102,12 @@ const setCalendar = async (date) => {
             winEmoji.height = 25;
             currentMonthDateDiv.appendChild(winEmoji);
         } else if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "무") {
-            currentMonthDateDiv.classList.add("non-highlight");
+            let winEmoji = document.createElement('img');
+            winEmoji.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Astonished%20Face.png";
+            winEmoji.alt = "Lose Emoji";
+            winEmoji.width = 25; // 이미지 크기 설정
+            winEmoji.height = 25;
+            currentMonthDateDiv.appendChild(winEmoji);
         } else {
             const dateText = document.createTextNode(date);
             currentMonthDateDiv.appendChild(dateText);     
