@@ -134,16 +134,18 @@ button {
     .input-container {
         display: flex;
         flex-direction: row;
+        height: 50px;
     }
     .input-container > p {
         font-size: 16px;
     }
     .input-container > input {
         font-size: 16px;
-        margin-left: 130px;
+        margin-left: 120px;
+        
     }
     .input-container select {
-        margin-left: 130px;
+        margin-left: 120px;
         font-size: 16px;
     }
 
@@ -169,7 +171,7 @@ button {
         margin-bottom: 25px;
     }
     .input-container, button {
-        width: 80%; /* 너비 조정 */
+        width: 90%; /* 너비 조정 */
         height: 45px; /* 더 작은 화면에서 높이 축소 */
         font-size: 16px;
     }
