@@ -93,6 +93,8 @@ main {
 
 .diary-content > img {
     width: 100%;
+    height: 50%;
+    border-radius: 15px;
 }
 
 .diary-content > h5 {
