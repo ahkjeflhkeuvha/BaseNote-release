@@ -75,11 +75,10 @@ nav img {
     top: 14px;
     left: 20px;
     margin: 0;
-    font-size: 20px; /* 기본 폰트 크기 */
 }
 
 .input-container > input {
-    width: 100%;
+    width: 100%; /* 너비를 부모 요소에 맞게 조정 */
     height: 60px;
     border: 0;
     background-color: #fff;
@@ -98,7 +97,7 @@ nav img {
 }
 
 button {
-    width: 90%;
+    width: 90%; /* 너비를 부모 요소에 맞게 조정 */
     max-width: 1144px;
     height: 72px;
     border: 0;
@@ -111,11 +110,7 @@ button {
 
 .choice-container {
     font-size: 18px;
-    width: 90%;
-}
-
-footer {
-    display: none;
+    width: 90%; /* 작은 화면에서 너비 조정 */
 }
 
 /* 반응형 디자인 */
@@ -126,42 +121,9 @@ footer {
     #signup-container > h2 {
         font-size: 40px; /* 폰트 크기 조정 */
     }
-    .input-container > p {
-        font-size: 18px; /* 폰트 크기 축소 */
-    }
-    .input-container > input {
-        font-size: 18px; /* 입력창 폰트 크기 축소 */
-    }
-    button {
-        font-size: 18px;
-    }
 }
 
-@media (max-width: 800px) {
-    nav > a {
-        display: none;
-    }
-
-    nav > a:nth-child(3) {
-        display: block;
-    }
-
-    footer {
-        background-color: white;
-        position: fixed;
-        bottom: 0;
-        height: 70px;
-        width: 100%;
-        z-index: 10;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    footer i {
-        font-size: 20px;
-    }
-    
+@media (max-width: 768px) {
     #signup-container {
         margin-top: 20%;
     }
@@ -169,35 +131,34 @@ footer {
         font-size: 36px;
         margin-bottom: 30px;
     }
+    .input-container {
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+    }
     .input-container > p {
         font-size: 16px;
     }
     .input-container > input {
         font-size: 16px;
+        margin-left: 120px;
+        
     }
-    button {
+    .input-container select {
+        margin-left: 120px;
         font-size: 16px;
     }
-}
 
-@media (max-width: 768px) {
-    #signup-container {
-        margin-top: 25%;
-    }
-    #signup-container > h2 {
-        font-size: 34px;
-        margin-bottom: 25px;
-    }
-    .input-container > p {
+    .input-container option {
         font-size: 16px;
+    }
+    .input-container, button {
+        width: 80%; /* 작은 화면에서 너비 조정 */
+        height: 50px; /* 버튼 높이 축소 */
+        font-size: 18px;
     }
     .input-container > input {
-        height: 50px;
-        font-size: 16px;
-    }
-    button {
-        height: 50px;
-        font-size: 16px;
+        height: 50px; /* 입력창 높이 축소 */
     }
 }
 
@@ -206,21 +167,18 @@ footer {
         margin-top: 30%;
     }
     #signup-container > h2 {
-        font-size: 30px;
-        margin-bottom: 20px;
+        font-size: 30px; /* 더 작은 화면에서 폰트 크기 축소 */
+        margin-bottom: 25px;
     }
-    .input-container > p {
-        font-size: 14px;
+    .input-container, button {
+        width: 90%; /* 너비 조정 */
+        height: 45px; /* 더 작은 화면에서 높이 축소 */
+        font-size: 16px;
     }
     .input-container > input {
-        height: 45px;
-        font-size: 14px;
-    }
-    button {
-        height: 45px;
-        font-size: 14px;
+        height: 45px; /* 입력창 높이 축소 */
     }
     .choice-container {
-        font-size: 14px;
+        font-size: 16px; /* 더 작은 화면에서 폰트 크기 축소 */
     }
 }
