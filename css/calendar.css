@@ -106,6 +106,10 @@ main {
     background-color: rgb(43, 217, 133);
 }
 
+footer {
+    display: none;
+}
+
 @media (max-width: 900px) {
     #calendar-header {
         margin-top: 15%;

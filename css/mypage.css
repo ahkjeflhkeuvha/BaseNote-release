@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 * {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     box-sizing: border-box;
@@ -16,12 +17,10 @@ body {
 
 a {
     color: black;
-    text-decoration: none;  
+    text-decoration: none;
 }
 
-
 /* 네비게이션 바 */
-
 nav {
     position: fixed;
     width: 100%;
@@ -41,7 +40,18 @@ nav img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 80%; /* 기본 너비 */
+}
+
+footer {
+    display: none;
+}
+
+/* 반응형 - 500px 미만일 때 너비 변경 */
+@media (max-width: 500px) {
+    .mypage-container {
+        width: 90%; /* 500px 이하일 때 너비 */
+    }
 }
 
 .mypage-container > h2 {
@@ -54,7 +64,7 @@ nav img {
     display: flex;
     align-items: center;
     column-gap: 24px;
-    justify-content: flex-start;    
+    justify-content: flex-start;
 }
 
 .image-container > img {
@@ -77,29 +87,18 @@ nav img {
     column-gap: 8px;
 }
 
-.image-button {
-    background-color: white;
+.image-button, .del-button {
+    background-color: #7EF899; /* 버튼 컬러 변경 */
     border: 1px solid #222222;
     padding: 8px 28px;
     border-radius: 5px;
 }
 
-.image-button > label {
+.image-button > label, .del-button > input {
     font-size: 16px;
     cursor: pointer;
-}
-
-.del-button {
-    background-color: white;
-    border: 1px solid #222222;
-    padding: 8px 28px;
-    border-radius: 5px;
-}
-
-.del-button > input {
     background-color: transparent;
     border: none;
-    font-size: 16px;
 }
 
 .personal-info-container {
@@ -119,34 +118,12 @@ nav img {
     position: relative;
 }
 
-.personal-info-container > .phonenum-container > button {
-    position: absolute;
-    right: 15px;
-    bottom: 20px;
-
-    background-color: transparent;
-    border: 1px solid #222222;
-    padding: 6px 24px;
-    border-radius: 5px;
-
-}
-
-.personal-info-container > .password-container > button {
-    position: absolute;
-    right: 15px;
-    bottom: 20px;
-
-    background-color: transparent;
-    border: 1px solid #222222;
-    padding: 6px 24px;
-    border-radius: 5px;
-}
-
+.personal-info-container > .phonenum-container > button,
+.personal-info-container > .password-container > button,
 .personal-info-container > .team-container > button {
     position: absolute;
     right: 15px;
     bottom: 20px;
-
     background-color: transparent;
     border: 1px solid #222222;
     padding: 6px 24px;
@@ -175,6 +152,7 @@ nav img {
     color: white;
 }
 
+/* 네비게이션 바에서 모바일 화면 대응 */
 @media (max-width: 800px) {
     nav > a {
         display: none;
@@ -183,7 +161,7 @@ nav img {
     nav > a:nth-child(3) {
         display: block;
     }
-    
+
     footer {
         background-color: white;
         position: fixed;
@@ -195,7 +173,7 @@ nav img {
         justify-content: space-around;
         align-items: center;
     }
-    
+
     footer i {
         font-size: 20px;
     }

@@ -180,6 +180,10 @@ button {
     color: white;
 }
 
+footer {
+    display: none;
+}
+
 @media (max-width: 900px) {
     #date {
         width: 20%;
