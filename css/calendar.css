@@ -112,6 +112,32 @@ main {
     }
 }
 
+@media (max-width: 800px) {
+    nav > a {
+        display: none;
+    }
+
+    nav > a:nth-child(3) {
+        display: block;
+    }
+    
+    footer {
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+        height: 70px;
+        width: 100%;
+        z-index: 10;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    footer i {
+        font-size: 20px;
+    }
+}
+
 /* 반응형 폰트 크기 조정 */
 @media (max-width: 768px) {
     body {
