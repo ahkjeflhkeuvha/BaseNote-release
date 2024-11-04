@@ -35,17 +35,25 @@ nav {
     height: 70px;
 }
 
+nav > a {
+    width: 70px;
+}
+
 nav img {
     width: 75px;
 }
 
 .plus-button {
     position: fixed; /* 고정 위치로 변경 */
-    bottom: 20px; /* 화면 하단에서 20px */
+    bottom: 80px; /* 화면 하단에서 20px */
     right: 20px; /* 화면 오른쪽에서 20px */
     border: 0;
     background-color: transparent;
-    z-index: 20; /* 다른 요소 위에 나타나도록 z-index 설정 */
+    z-index: 5; /* 다른 요소 위에 나타나도록 z-index 설정 */
+}
+
+.plus-button > i {
+    font-size: 50px;
 }
 
 .bi-plus-circle-fill {
@@ -143,9 +151,10 @@ main {
     background: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding: 20px;
-    z-index: 10;
+    z-index: 50;
     overflow-y: auto;
     border-radius: 10px;
+
 }
 
 .popup.active {
@@ -241,6 +250,10 @@ main {
     border-radius: 10px;
 }
 
+footer {
+    display: none;
+}
+
 @media (max-width: 900px) {
     #date {
         width: 20%;
@@ -308,7 +321,34 @@ main {
     }
 }
 
+@media (max-width: 800px) {
+    nav > a {
+        display: none;
+    }
+
+    nav > a:nth-child(3) {
+        display: block;
+    }
+    
+    footer {
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+        height: 70px;
+        width: 100%;
+        z-index: 10;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    footer i {
+        font-size: 20px;
+    }
+}
+
 @media (max-width: 670px) {
+    
     #date {
         width: 30%;
     }
@@ -332,45 +372,14 @@ main {
     .popup-contents {
         height: 58%;
     }
-}
 
-@media (max-width: 480px) {
-    nav img {
-        width: 50px;
+    #diary-list {
+        margin-bottom: calc(70px + 20px);
     }
 
-    .popup {
-        width: 95%;
-        height: auto;
-        max-width: none;
-    }
-
-    .popup-items {
-        flex-direction: column;
-    }
-
-    .diary-content {
-        max-width: 90%;
-        height: auto;
-    }
-
-    .diary-content > h5 {
-        font-size: 24px;
-    }
-
-    .diary-content > p {
-        font-size: 16px;
-    }
-
-    .popup-title > p:nth-child(2) {
-        font-size: 16px;
-    }
-
-    .popup-contents > p:nth-child(2) {
-        font-size: 16px;
-    }
-
-    .popup-contents {
-        height: 58%;
+    .popup-close {
+        width: 89%;
     }
 }
+
+
