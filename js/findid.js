@@ -1,7 +1,10 @@
 async function findId(name, phone) {
     const users = JSON.parse(localStorage.getItem('users')) || []; // 로컬 스토리지에서 사용자 데이터 가져오기
+    const defaultUser = fetch(url).then(res => res.json())
+    console.log(users, defaultUser)
 
-    const user = users.find(user => user.name === name && user.phone === phone);
+    const totalUser = [...users, ...defaultUser]
+    const user = totalUser.find(user => user.name === name && user.phone === phone);
     if (user) {
         return { success: true, user: { _id: user.id } }; // 사용자가 찾은 경우
     } else {

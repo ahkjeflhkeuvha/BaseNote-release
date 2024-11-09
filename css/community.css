@@ -193,7 +193,11 @@ footer {
 @media (max-width: 500px) {
     main {
         padding: 0px 5%;
-        margin-top: 20%;
+        margin-top: 40%;
+    }
+    .post-list {
+        height: 500px;
+        overflow-y: scroll;
     }
     .post-item {
         padding: 10px;

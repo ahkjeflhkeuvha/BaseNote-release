@@ -1,7 +1,10 @@
 async function findPw(id, phone) {
     const users = JSON.parse(localStorage.getItem('users')) || []; // 로컬 스토리지에서 사용자 데이터 가져오기
+    const defaultUser = fetch(url).then(res => res.json())
+    console.log(users, defaultUser)
 
-    const user = users.find(user => user.id === id && user.phone === phone);
+    const totalUser = [...users, ...defaultUser]
+    const user = totalUser.find(user => user.id === id && user.phone === phone);
     if (user) {
         return { success: true, user: { pw: user.pw } }; // 비밀번호 찾기 성공
     } else {

@@ -1,5 +1,16 @@
 const userid = localStorage.getItem('id') || 'jieun0906';
-console.log(userid)
+const stadiumTeam = {
+    "기아 타이거즈" : "광주-기아 챔피언스 필드",
+    "두산 베어스" : "서울종합운동장 야구장",
+    "엘지 트윈스" : "서울종합운동장 야구장",
+    "KT 위즈" : "수원 케이티 위즈 파크",
+    "SSG 랜더스" : "인천 SSG 랜더스필드",
+    "NC 다이노스" : "창원 NC 파크",
+    "롯데 자이언츠" : "부산 사직 야구장",
+    "삼성 라이온즈" : "대구 삼성 라이온즈 파크",
+    "한화 이글스" : "대전 한화생명 이글스파크",
+    "키움 히어로즈" : "고척 스카이돔"
+}
 
 async function locate(event) {
     console.log(userid);
@@ -17,18 +28,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const allDiaries = [...localDiaries, ...data];
 
-        
-            
-            // 승, 무, 패 개수 계산
-            let winCount = 0, noneCount = 0, loseCount = 0;
-            
-            allDiaries.forEach((diary) => {
-                const result = diary.result;  // diary.result는 승, 무, 패 결과
+            // Retrieve user information from local storage
+            const userid = localStorage.getItem('id') || 'jieun0906';
+            const userTeam = JSON.parse(localStorage.getItem('users')).find(user => user.id === userid).userteam || '기아 타이거즈'
+            const userHome = stadiumTeam[userTeam]
+            console.log(userTeam, userHome)
 
-                if (result === "승") winCount++;
-                else if (result === "패") loseCount++;
-                else if (result === "무") noneCount++;
+            // Initialize counters
+            let winCount = 0, noneCount = 0, loseCount = 0, home = 0, ex = 0, team = 0;
+
+            // Iterate through each diary entry
+            allDiaries.forEach((diary) => {
+                if(diary.userId === userid){
+                    const result = diary.result;  // 승, 무, 패 result
+                    const stadium = diary.location;  // 경기장 location
+                    console.log(stadium, userHome)
+                    // Increment win/none/lose counters based on result
+                    if (result === "승") winCount++;
+                    else if (result === "패") loseCount++;
+                    else if (result === "무") noneCount++;
+
+                    if(stadium === userHome) team++
+                    else if(stadium === "집관") home++
+                    else ex++
+                }
             });
+
+            const homeDiv = document.querySelector('.home > p')
+            const exDiv = document.querySelector('.ex > p')
+            const teamDiv = document.querySelector('.team > p')
+
+            homeDiv.textContent = home + "번"
+            exDiv.textContent = ex + "번"
+            teamDiv.textContent = team + "번"
 
             // 총 경기 수 계산
             const totalCount = winCount + noneCount + loseCount;
@@ -113,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Failed to load diaries:', error);
         }
+
     }
 
     loadPercent();

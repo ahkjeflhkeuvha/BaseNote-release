@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // LocalStorage에서 사용자 정보 가져오기
-    const userid = localStorage.getItem('id');
+    const userid = localStorage.getItem('id') || 'jieun0906';
     const userpw = localStorage.getItem('pw');
     const username = localStorage.getItem('name');
     const userphone = localStorage.getItem('phonenum');

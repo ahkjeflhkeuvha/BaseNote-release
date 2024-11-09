@@ -45,12 +45,17 @@ nav img {
     width: 75px;
 }
 
-.result-container {
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: 12%; /* 네비게이션 바를 고려하여 여백 설정 */
+    row-gap: 50px;
+}
+
+.result-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     font-size: 20px;
     width: 100%;
@@ -71,15 +76,28 @@ h2 {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
+#stadiumRes {
+    width: 50%;
+}
+
+.ex, .home, .team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.ex > img, .home > img, .team > img {
+    width: 50px !important;
+    height: 50px !important;
+}
+
 footer {
     display: none;
 }
 
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 900px) {
-    .result-container {
-        margin-top: 20% !important; /* 네비게이션 바를 고려하여 여백 조정 */
-    }
 
     h2 {
         font-size: 32px; /* 화면 크기에 따라 제목 크기 조정 */
@@ -117,7 +135,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .result-container {
+    .container {
+        grid-template-columns: 1fr;
         margin-top: 25%;
     }
     h2 {
@@ -131,8 +150,12 @@ footer {
 }
 
 @media (max-width: 500px) {
-    .result-container {
+    .container {
         margin-top: 30% !important;
+        margin-bottom: 200px;
+    }
+    .result-container {
+        font-size: 18px; /* 모바일에서 폰트 크기 조정 */
     }
     h2 {
         font-size: 24px; /* 모바일 화면에서 제목 크기 조정 */
@@ -141,9 +164,5 @@ footer {
     #resultChart {
         height: 250px; /* 모바일에서 차트 높이 조정 */
         width: 90% !important;
-    }
-
-    .result-container {
-        font-size: 18px; /* 모바일에서 폰트 크기 조정 */
     }
 }

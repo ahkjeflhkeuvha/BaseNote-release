@@ -113,6 +113,10 @@ button {
     width: 90%; /* 작은 화면에서 너비 조정 */
 }
 
+footer {
+    display: none;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 1000px) {
     #signup-container {
