@@ -37,6 +37,7 @@ nav {
 
 nav > a {
     width: 70px;
+    text-align: center;
 }
 
 nav img {
