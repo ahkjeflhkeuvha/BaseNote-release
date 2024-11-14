@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 options: {
                     indexAxis: 'y', // 막대를 가로로 변경
+                    responsive: true, // 반응형으로 그래프 조정
                     scales: {
                         x: {
                             stacked: true, // X축 스택 활성화

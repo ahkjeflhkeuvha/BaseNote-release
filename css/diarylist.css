@@ -376,6 +376,8 @@ footer {
 
     #diary-list {
         margin-bottom: calc(70px + 20px);
+        display: flex;
+        flex-direction: column;
     }
 
     .popup-close {
