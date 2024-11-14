@@ -8,7 +8,7 @@
 }
 
 body {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -130,6 +130,33 @@ footer {
     #signup-container > h2 {
         font-size: 40px; /* 폰트 크기 조정 */
     }
+}
+
+@media (max-width: 800px) {
+    nav > a {
+        display: none;
+    }
+
+    nav > a:nth-child(3) {
+        display: block;
+    }
+
+    footer {
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        width: 100%;
+        z-index: 10;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    footer i {
+        font-size: 20px;
+    } 
+    
 }
 
 @media (max-width: 768px) {
