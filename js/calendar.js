@@ -19,7 +19,7 @@ const fetchSavedDates = async () => {
         const response = await fetch('diaries.json'); // API 경로에 맞게 수정
         if (!response.ok) throw new Error('데이터 가져오기 실패');
         const savedDates = await response.json();
-        console.log(savedDates)
+        // console.log(savedDates)
         return savedDates; // DB에서 가져온 날짜 배열 반환
     } catch (error) {
         console.error(error);

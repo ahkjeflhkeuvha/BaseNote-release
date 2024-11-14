@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const userteam = localStorage.getItem('team');
     const userimg = localStorage.getItem('image'); // 'img'를 'image'로 수정하여 일관성 유지
 
-    // 콘솔 로그로 사용자 정보 확인
-    console.log(userid, userpw, username, userphone, userteam, userimg);
-
     // DOM 요소 가져오기
     const userimgImg = document.getElementById('userImg');
     const useridP = document.getElementById('userid');
@@ -28,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     userteamP.innerHTML = userteam;
 
     // 이미지 설정
-    userimgImg.src = userimg ? userimg : "images/logo.jpg"; // userimg가 null일 경우 기본 이미지 사용
+    userimgImg.src = userimg === undefined ? userimg : "images/logo.jpg"; // userimg가 null일 경우 기본 이미지 사용
 
     // 전화번호 마스킹 함수
     function maskPhoneNumber(userphone) {
