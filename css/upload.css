@@ -137,6 +137,10 @@ footer {
         display: block;
     }
 
+    h2 {
+        font-size: 30px;
+    }
+
     footer {
         background-color: white;
         position: fixed;
@@ -158,10 +162,6 @@ footer {
 @media (max-width: 550px) {
     main {
         margin-top: 25%;
-    }
-
-    h2 {
-        font-size: 24px;
     }
 
     input[type="text"],

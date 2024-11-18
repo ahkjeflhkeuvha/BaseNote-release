@@ -151,7 +151,10 @@ footer {
 
     #calendar-container {
         width: 90%; /* 모바일에서는 좀 더 넓게 */
+    }
 
+    h1 {
+        font-size: 30px;
     }
 
     .week-name {

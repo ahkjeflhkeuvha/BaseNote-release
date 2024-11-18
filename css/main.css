@@ -77,7 +77,7 @@ h2 {
 
 #resultChart {
     width: 60% !important;
-    height: 400px !important; /* 차트의 기본 높이 설정 */
+    height: 300px !important; /* 차트의 기본 높이 설정 */
     background-color: white; /* 차트 배경색 */
     border-radius: 10px; /* 모서리 둥글게 */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
@@ -114,7 +114,7 @@ footer {
     }
 
     #resultChart {
-        height: 300px !important; /* 차트 높이 조정 */
+        height: 200px !important; /* 차트 높이 조정 */
     }
 }
 
@@ -168,7 +168,7 @@ footer {
         font-size: 18px; /* 모바일에서 폰트 크기 조정 */
     }
     h2 {
-        font-size: 24px; /* 모바일 화면에서 제목 크기 조정 */
+        font-size: 30px;
     }
 
     #resultChart {

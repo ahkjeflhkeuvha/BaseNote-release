@@ -207,7 +207,7 @@ footer {
         margin-bottom: 25px;
     }
     .input-container, button {
-        width: 90%; /* 너비 조정 */
+        width: 80%; /* 너비 조정 */
         height: 45px; /* 더 작은 화면에서 높이 축소 */
         font-size: 16px;
     }

@@ -8,7 +8,7 @@
 }
 
 body {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -48,7 +48,6 @@ nav img {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 10%;
     margin-bottom: 84px;
     width: 100%;
 }
@@ -102,9 +101,6 @@ footer {
 
 /* 반응형 디자인 */
 @media (max-width: 1000px) {
-    .findId-container {
-        margin-top: 15%;
-    }
     .findId-container > h2 {
         font-size: 40px;
     }
@@ -137,11 +133,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .findId-container {
-        margin-top: 25%;
-    }
     .findId-container > h2 {
-        font-size: 36px;
+        font-size: 30px;
         margin-bottom: 30px;
     }
     #findIdForm > input, #findIdForm > #submitButton {
@@ -152,10 +145,7 @@ footer {
 }
 
 @media (max-width: 500px) {
-    .findId-container {
-        margin-top: 40%;
-    }
     #findIdForm > input, #findIdForm > #submitButton {
-        width: 90%;
+        width: 80%;
     }
 }
