@@ -1,5 +1,10 @@
 async function signup(_id, pw, name, phonenum, team) {
     const users = JSON.parse(localStorage.getItem('users')) || []; // 로컬 스토리지에서 사용자 데이터 가져오기
+    const defaultUser = await fetch('clientInfo.json').then(res => res.json())
+    console.log(users, defaultUser)
+
+    const totalUser = [...users, ...defaultUser]
+
 
     // 사용자 중복 확인
     const existingUser = users.find(user => user.id === _id);

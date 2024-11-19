@@ -1,6 +1,6 @@
 async function findPw(id, phone) {
     const users = JSON.parse(localStorage.getItem('users')) || []; // 로컬 스토리지에서 사용자 데이터 가져오기
-    const defaultUser = fetch(url).then(res => res.json())
+    const defaultUser = fetch('clientInfo.json').then(res => res.json())
     console.log(users, defaultUser)
 
     const totalUser = [...users, ...defaultUser]
@@ -20,7 +20,7 @@ async function submit(event) {
 
     if (!userid || !userphone) {
         alert('아이디 또는 전화번호를 입력해 주세요.');
-        return;
+        return; 
     }
 
     const result = await findPw(userid, userphone);

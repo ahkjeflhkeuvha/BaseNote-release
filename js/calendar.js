@@ -60,11 +60,15 @@ const setCalendar = async (date) => {
     const localDiaries = localData ? JSON.parse(localData) : [];
 
     const allDiaries = [...localDiaries, ...savedDates]; // JSON 구조에 맞게 수정
-    console.log(allDiaries)
+    const equalDiaries = await allDiaries.find(user => user.userId === userid)
+    const showDiaries = [equalDiaries, ""]; // 배열 형태 보장
+    console.log(equalDiaries, showDiaries)
     let savedAllDiaries = new Map();
-    allDiaries.forEach((val) => {
+    showDiaries.forEach((val) => {
         savedAllDiaries.set(val["date"], val["result"]);
     });
+
+    console.log(savedAllDiaries)
 
     // 이전 달의 뒷날짜 표시
     const prevMonthLastDate = new Date(year, month, 0);
@@ -86,7 +90,6 @@ const setCalendar = async (date) => {
         const realMonth = month + 1;
         const realDate = date;
         const dateString = `${year}-${realMonth.toString().padStart(2, '0')}-${realDate.toString().padStart(2, '0')}`; // "YYYY-MM-DD" 형식
-
         if (savedAllDiaries.has(dateString) && savedAllDiaries.get(dateString) === "승") {
             let winEmoji = document.createElement('img');
             winEmoji.src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20Blowing%20a%20Kiss.png";
@@ -112,6 +115,7 @@ const setCalendar = async (date) => {
             const dateText = document.createTextNode(date);
             currentMonthDateDiv.appendChild(dateText);     
         }
+
         calendarContainer.appendChild(currentMonthDateDiv);        
     }
 

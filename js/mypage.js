@@ -1,31 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // LocalStorage에서 사용자 정보 가져오기
-    const userid = localStorage.getItem('id') || 'jieun0906';
-    const userpw = localStorage.getItem('pw');
-    const username = localStorage.getItem('name');
-    const userphone = localStorage.getItem('phonenum');
-    const userteam = localStorage.getItem('team');
-    const userimg = localStorage.getItem('image'); // 'img'를 'image'로 수정하여 일관성 유지
 
-    // DOM 요소 가져오기
-    const userimgImg = document.getElementById('userImg');
-    const useridP = document.getElementById('userid');
-    const userphoneP = document.getElementById('phonenum');
-    const userpwP = document.getElementById('password');
-    const userteamP = document.getElementById('team');
+    async function setInfo() {
+        // LocalStorage에서 사용자 정보 가져오기
+        const userid = localStorage.getItem('id') || 'jieun0906';
+        const users = JSON.parse(localStorage.getItem('users')) || []; // 로컬 스토리지에서 사용자 데이터 가져오기
+        const defaultUser = await fetch('clientInfo.json').then(res => res.json())
+        console.log(users, defaultUser)
 
-    // 전화번호 및 비밀번호 마스킹 처리
-    const fixedPhone = maskPhoneNumber(userphone);
-    const fixedPw = maskPw(userpw);
+        const totalUser = [...users, ...defaultUser]
 
-    // 사용자 정보 표시
-    useridP.innerText = userid;
-    userphoneP.innerHTML = fixedPhone;
-    userpwP.innerHTML = fixedPw;
-    userteamP.innerHTML = userteam;
+        const userData = totalUser.find(user => user.id === userid)
+        console.log(userData)
 
-    // 이미지 설정
-    userimgImg.src = userimg === undefined ? userimg : "images/logo.jpg"; // userimg가 null일 경우 기본 이미지 사용
+        // {id: 'a', pw: 'a', name: 'a', phone: '01012345678', userteam: '엘지 트윈스'}id: "a"name: "a"phone: "01012345678"pw: "a"userteam: "엘지 트윈스"[[Prototype]]: Object
+        const { id, pw, name, phone, userteam } = userData
+        const userimg = localStorage.getItem('image'); // 'img'를 'image'로 수정하여 일관성 유지
+
+        // DOM 요소 가져오기
+        const userimgImg = document.getElementById('userImg');
+        const useridP = document.getElementById('userid');
+        const userphoneP = document.getElementById('phonenum');
+        const userpwP = document.getElementById('password');
+        const userteamP = document.getElementById('team');
+
+        // 전화번호 및 비밀번호 마스킹 처리
+        const fixedPhone = maskPhoneNumber(phone);
+        const fixedPw = maskPw(pw);
+
+        // 사용자 정보 표시
+        useridP.innerText = name;
+        userphoneP.innerHTML = fixedPhone;
+        userpwP.innerHTML = fixedPw;
+        userteamP.innerHTML = userteam;
+
+        // 이미지 설정
+        userimgImg.src = userimg === undefined ? userimg : "images/logo.jpg"; // userimg가 null일 경우 기본 이미지 사용
+
+    }
 
     // 전화번호 마스킹 함수
     function maskPhoneNumber(userphone) {
@@ -45,4 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return '*'.repeat(userpw.length); // 비밀번호 길이에 맞춰 '*' 반복
     }
+    setInfo()
 });
+
+
