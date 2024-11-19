@@ -126,16 +126,19 @@ document.addEventListener('DOMContentLoaded', () => {
                             anchor: 'center', // 값 위치
                             align: 'center', // 값 정렬
                             font: {
-                                size: 20  // 레이블 크기 조정
+                                size: 16  // 레이블 크기 조정
                             },
                             formatter: (value, context) => {
                                 // 각 데이터에 맞는 승률을 표시
                                 if (context.dataset.label === '승') {
-                                    return winPercentage + '%';
+                                    if(winPercentage < 0.1) return ''
+                                    return '승 ' + winPercentage + '%';
                                 } else if (context.dataset.label === '무') {
-                                    return nonePercentage + '%';
+                                    if(nonePercentage  < 0.1) return ''
+                                    return '무 ' + nonePercentage + '%';
                                 } else if (context.dataset.label === '패') {
-                                    return losePercentage + '%';
+                                    if(losePercentage  < 0.1) return ''
+                                    return '패 ' + losePercentage + '%';
                                 }
                             }
                         }
