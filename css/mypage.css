@@ -43,13 +43,11 @@ nav img {
 }
 
 .mypage-container {
-    margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%; /* 기본 너비 */
-    margin-top: 10%;
 }
 
 footer {
@@ -58,9 +56,6 @@ footer {
 
 /* 네비게이션 바에서 모바일 화면 대응 */
 @media (max-width: 800px) {
-    .mypage-container {
-        margin-top: 30%;
-    }
     nav > a {
         display: none;
     }
@@ -95,8 +90,6 @@ footer {
 @media (max-width: 500px) {
     .mypage-container {
         width: 90%; /* 500px 이하일 때 너비 */
-        margin-top: 35%;
-        margin-bottom: calc(70px + 40px);
     }
 }
 
@@ -114,8 +107,8 @@ footer {
 }
 
 .image-container > img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
 }
 
 .addition-container {
@@ -136,12 +129,12 @@ footer {
 .image-button, .del-button {
     background-color: white;
     border: 1px solid #222222;
-    padding: 8px 34px;
+    padding: 6px 24px;
     border-radius: 5px;
 }
 
 .image-button > label, .del-button > input {
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -157,11 +150,16 @@ footer {
 
 .personal-info-container > p {
     font-size: 20px;
+    font-weight: bold;
     margin-bottom: 24px;
 }
 
 .phonenum-container, .password-container, .team-container {
     position: relative;
+}
+
+.phonenum-container > p:first-child, .password-container > p:first-child, .team-container > p:first-child {
+    font-weight: bold;
 }
 
 .personal-info-container > .phonenum-container > button,
@@ -177,7 +175,7 @@ footer {
 }
 
 #phonenum, #password, #team {
-    font-size: 22px;
+    font-size: 16px;
 }
 
 .border {
@@ -191,10 +189,10 @@ footer {
     width: 100%;
     height: 50px;
     border: 0;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 18px;
     background-color: #7EF899;
-    font-size: 20px;
+    font-size: 16px;
     color: white;
 }
 

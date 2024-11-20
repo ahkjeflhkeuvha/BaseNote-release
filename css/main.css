@@ -42,6 +42,10 @@ nav {
     height: 70px;
 }
 
+.choice-container {
+    position: relative;
+}
+
 nav > a {
     width: 70px;
     text-align: center;
@@ -50,7 +54,7 @@ nav > a {
 nav img {
     width: 75px;
 }
-
+    
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
