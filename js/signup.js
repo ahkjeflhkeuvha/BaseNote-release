@@ -7,7 +7,7 @@ async function signup(_id, pw, name, phonenum, team) {
 
 
     // 사용자 중복 확인
-    const existingUser = users.find(user => user.id === _id);
+    const existingUser = totalUser.find(user => user.id === _id);
     if (existingUser) {
         alert('이미 사용 중인 아이디입니다.');
         return;

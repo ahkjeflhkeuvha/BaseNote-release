@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     async function setInfo() {
         // LocalStorage에서 사용자 정보 가져오기
         const userid = localStorage.getItem('id') || 'jieun0906';
@@ -59,4 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setInfo()
 });
 
+function openMain(){
+    console.log("onclick")
+    window.location.href = 'main.html'
+}
 
