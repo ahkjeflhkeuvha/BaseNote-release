@@ -1,7 +1,7 @@
 const url = 'clientInfo.json'
 async function login(_id, pw) {
     const users = JSON.parse(localStorage.getItem('users')) || []; // 로컬 스토리지에서 사용자 데이터 가져오기
-    const defaultUser = fetch(url).then(res => res.json())
+    const defaultUser = await fetch(url).then(res => res.json())
     console.log(users, defaultUser)
 
     const totalUser = [...users, ...defaultUser]
