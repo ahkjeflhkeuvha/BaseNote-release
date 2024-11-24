@@ -101,7 +101,7 @@ footer {
 /* 반응형 디자인 */
 @media (max-width: 1000px) {
     .findId-container > h2 {
-        font-size: 40px;
+        font-size: 30px;
     }
 }
 

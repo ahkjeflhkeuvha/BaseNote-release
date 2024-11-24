@@ -125,10 +125,11 @@ footer {
 /* 반응형 디자인 */
 @media (max-width: 1000px) {
     #signup-container {
+
         margin-top: 15%;
     }
     #signup-container > h2 {
-        font-size: 40px; /* 폰트 크기 조정 */
+        font-size: 30px; /* 폰트 크기 조정 */
     }
 }
 
