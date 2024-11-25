@@ -1,7 +1,9 @@
 const userid = localStorage.getItem('id') || 'jieun0906';
+localStorage.setItem("idNum",  21)
 
 function saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, image) {
     const diary = {
+        id : (Number(localStorage.getItem("idNum")) + 1),
         userId: userId,
         title: title,
         date: date,
@@ -12,6 +14,8 @@ function saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, 
         content: content,
         image: image
     };
+
+    localStorage.setItem("idNum",  Number(localStorage.getItem("idNum")) + 1)
 
     // 저장된 일기 목록을 가져오기
     let diaries = JSON.parse(localStorage.getItem('diaries')) || [];
@@ -37,6 +41,8 @@ function submit(event) {
     const gameRes = document.getElementById('win-lose-select').value;
     const content = document.getElementById('content').value;
 
+    console.log(userId, title, date, bestPlayer, pitcher, location, gameRes, content)
+
     // 이미지 파일 읽기
     const imageInput = document.getElementById('image');
     let image = null;
@@ -48,7 +54,7 @@ function submit(event) {
             const result = saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, image);
             if (result) {
                 alert('일기가 성공적으로 저장되었습니다.');
-                window.location.href = 'diarylist.html';
+                // window.location.href = 'diarylist.html';
             } else {
                 alert('일기 저장에 실패하였습니다. 다시 시도해 주세요.');
             }
@@ -59,7 +65,7 @@ function submit(event) {
         const result = saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, null);
         if (result) {
             alert('일기가 성공적으로 저장되었습니다.');
-            window.location.href = 'diarylist.html';
+            // window.location.href = 'diarylist.html';
         } else {
             alert('일기 저장에 실패하였습니다. 다시 시도해 주세요.');
         }

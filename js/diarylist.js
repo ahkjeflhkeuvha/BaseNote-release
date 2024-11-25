@@ -15,6 +15,7 @@ async function loadDiaries() {
         
         // 기존 데이터와 새로 가져온 데이터를 합침
         const allDiaries = [...localDiaries, ...jsonDiaries];
+        console.log(allDiaries)
 
         // `userid`와 일치하는 다이어리만 필터링
         const userDiaries = allDiaries.filter(diary => diary.userId === userid);
@@ -56,6 +57,7 @@ loadDiaries();
 
 // 팝업을 여는 함수
 window.openPopup = async function(id) {
+    console.log(id)
     try {
         const response = await fetch('diaries.json'); // 경로를 확인하세요
         if (!response.ok) {
@@ -68,7 +70,8 @@ window.openPopup = async function(id) {
 
         // 기존 데이터와 새로 가져온 데이터를 합침
         const allDiaries = [...localDiaries, ...jsonDiaries];
-        const userDiary = allDiaries.find(diary => diary.id === id);
+        const userDiary = allDiaries.find(diary => diary.id === String(id));
+        console.log(userDiary)
 
         if (userDiary) {
             const popupContent = document.getElementById('popup-content');

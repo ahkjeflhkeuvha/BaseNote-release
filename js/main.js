@@ -77,6 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const nonePercentage = ((noneCount / totalCount) * 100).toFixed(2);
             const losePercentage = ((loseCount / totalCount) * 100).toFixed(2);
 
+            const typeDiv = document.querySelector('.type > p')
+
+            if(winPercentage > nonePercentage + losePercentage) {
+                typeDiv.textContent = "당신은 승리요정!"
+            } else if(nonePercentage > winPercentage + losePercentage) {
+                typeDiv.textContent = "당신은 동점요정!"
+            } else {
+                typeDiv.textContent = "당신은 액땜요정!"
+            }
+
             // 차트에 사용할 데이터 생성
             const totalResults = {
                 win: winCount,

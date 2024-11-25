@@ -107,6 +107,11 @@ h2 {
     height: 50px !important;
 }
 
+.type > p {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
 footer {
     display: none;
 }
