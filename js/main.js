@@ -1,6 +1,6 @@
 const userid = localStorage.getItem('id') || 'jieun0906';
 const stadiumTeam = {
-    "기아 타이거즈" : "광주-기아 챔피언스 필드",
+    "기아 타이거즈" : "광주 KIA 챔피언스필드",
     "두산 베어스" : "서울종합운동장 야구장",
     "엘지 트윈스" : "서울종합운동장 야구장",
     "KT 위즈" : "수원 케이티 위즈 파크",
@@ -30,7 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Retrieve user information from local storage
             const userid = localStorage.getItem('id') || 'jieun0906';
-            const userTeam = JSON.parse(localStorage.getItem('users')).find(user => user.id === userid).userteam || '기아 타이거즈'
+            const users = await fetch('clientInfo.json')
+            const userData = await users.json()
+            const localUsers = localStorage.getItem('users')
+            const localUser = localUsers ? JSON.parse(localUsers) : []
+            const allUser = [...userData, ...localUser ]
+            console.log(allUser)
+            const userTeam = allUser.find(user => user.id === userid).userteam || '기아 타이거즈'
+            console.log(userTeam)
             const userHome = stadiumTeam[userTeam]
             console.log(userTeam, userHome)
 
