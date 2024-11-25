@@ -115,7 +115,7 @@ button {
 
 .choice-container {
     font-size: 18px;
-    width: 90%; /* 작은 화면에서 너비 조정 */
+    text-align: center;
 }
 
 footer {

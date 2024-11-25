@@ -147,4 +147,7 @@ footer {
     #findIdForm > input, #findIdForm > #submitButton {
         width: 80%;
     }
+    .choice-container {
+        font-size: 16px; /* 더 작은 화면에서 폰트 크기 축소 */
+    }
 }
