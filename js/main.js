@@ -138,13 +138,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         tooltip: {
                             enabled: false // 툴팁 비활성화
                         },
+                        animation: { // 차트 애니메이션 사용 안 함 (옵션)
+                            duration: 10,
+                          },
                         datalabels: {
                             color: '#fff', // 값의 색상
                             anchor: 'center', // 값 위치
                             align: 'center', // 값 정렬
                             font: {
-                                size: 16  // 레이블 크기 조정
+                                size: 16,  // 레이블 크기 조정
+                                weight : 'bold'
                             },
+                            borderWidth: 1,
                             formatter: (value, context) => {
                                 // 각 데이터에 맞는 승률을 표시
                                 if (context.dataset.label === '승') {
