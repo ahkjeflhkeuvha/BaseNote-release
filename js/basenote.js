@@ -3,7 +3,7 @@ localStorage.setItem("idNum",  21)
 
 function saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, image) {
     const diary = {
-        id : (Number(localStorage.getItem("idNum")) + 1),
+        id : Number(Number(localStorage.getItem("idNum")) + 1),
         userId: userId,
         title: title,
         date: date,

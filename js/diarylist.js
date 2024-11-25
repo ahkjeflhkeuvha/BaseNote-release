@@ -70,7 +70,7 @@ window.openPopup = async function(id) {
 
         // 기존 데이터와 새로 가져온 데이터를 합침
         const allDiaries = [...localDiaries, ...jsonDiaries];
-        const userDiary = allDiaries.find(diary => diary.id === String(id));
+        const userDiary = allDiaries.find(diary => diary.id === id);
         console.log(userDiary)
 
         if (userDiary) {
