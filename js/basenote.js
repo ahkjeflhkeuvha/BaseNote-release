@@ -54,7 +54,7 @@ function submit(event) {
             const result = saveDiary(userId, title, date, bestPlayer, pitcher, location, gameRes, content, image);
             if (result) {
                 alert('일기가 성공적으로 저장되었습니다.');
-                // window.location.href = 'diarylist.html';
+                window.location.href = 'diarylist.html';
             } else {
                 alert('일기 저장에 실패하였습니다. 다시 시도해 주세요.');
             }

@@ -4,6 +4,10 @@ function loadPosts() {
 
     // localStorage에서 데이터 가져오기
     let localPosts = JSON.parse(localStorage.getItem('posts')) || [];
+    
+    const allPosts = [...localPosts, ...jsonPosts];
+
+    console.log(allPosts)
 
     // post.json 파일에서 데이터 가져오기
     fetch('post.json')
@@ -15,7 +19,7 @@ function loadPosts() {
         })
         .then(jsonPosts => {
             // JSON 게시물과 localStorage 게시물을 합칩니다.
-            const allPosts = [...localPosts, ...jsonPosts];
+
 
             // 모든 게시물을 리스트에 추가
             allPosts.forEach(post => {

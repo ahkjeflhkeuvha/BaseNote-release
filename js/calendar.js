@@ -8,6 +8,9 @@ prevMonthButton.addEventListener('click', () => changeMonth(-1));
 const nextMonthButton = document.getElementById('next-month');
 nextMonthButton.onclick = () => changeMonth(1);
 
+const localData = localStorage.getItem('diaries');
+const localDiaries = localData ? JSON.parse(localData) : [];
+
 // 현재 날짜 구하기
 var currentDate = new Date();
 
@@ -56,15 +59,16 @@ const setCalendar = async (date) => {
 
     calendarContainer.innerHTML = weekNameString;
 
-    const localData = localStorage.getItem('diaries');
-    const localDiaries = localData ? JSON.parse(localData) : [];
-
+        
     const allDiaries = [...localDiaries, ...savedDates]; // JSON 구조에 맞게 수정
-    const equalDiaries = await allDiaries.find(user => user.userId === userid)
-    const showDiaries = [equalDiaries, ""]; // 배열 형태 보장
-    console.log(equalDiaries, showDiaries)
+
+    console.log(allDiaries)
+
+    const equalDiaries = await allDiaries.filter(user => user.userId == userid)
+
+    console.log(equalDiaries)
     let savedAllDiaries = new Map();
-    showDiaries.forEach((val) => {
+    equalDiaries.forEach((val) => {
         savedAllDiaries.set(val["date"], val["result"]);
     });
 
